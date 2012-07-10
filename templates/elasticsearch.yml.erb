@@ -31,7 +31,7 @@
 # Cluster name identifies your cluster for auto-discovery. If you're running
 # multiple clusters on the same network, make sure you're using unique names.
 #
-# cluster.name: elasticsearch
+cluster.name: <%= @cluster_name %>
 
 
 #################################### Node #####################################
@@ -46,11 +46,11 @@
 #
 # Allow this node to be eligible as a master node (enabled by default):
 #
-# node.master: true
+node.master: <%= @node_master %>
 #
 # Allow this node to store data (enabled by default):
 #
-# node.data: true
+node.data: <%= @node_data %>
 
 # You can exploit these settings to design advanced cluster topologies.
 #
@@ -104,11 +104,11 @@
 
 # Set the number of shards (splits) of an index (5 by default):
 #
-# index.number_of_shards: 5
+index.number_of_shards: <%= @index_number_of_shards %>
 
 # Set the number of replicas (additional copies) of an index (1 by default):
 #
-# index.number_of_replicas: 1
+index.number_of_replicas: <%= @index_number_of_replicas %>
 
 # Note, that for development on a local machine, with small indices, it usually
 # makes sense to "disable" the distributed features:
@@ -200,7 +200,7 @@
 
 # Set the bind address specifically (IPv4 or IPv6):
 #
-# network.bind_host: 192.168.0.1
+network.bind_host: <%= @bind_host %>
 
 # Set the address other nodes will use to communicate with this node. If not
 # set, it is automatically derived. It must point to an actual IP address.

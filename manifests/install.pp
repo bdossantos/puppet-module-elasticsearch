@@ -13,7 +13,7 @@ class elasticsearch::install {
     ensure => 'installed',
   }
 
-  exec { 'download':
+  exec { 'download-elasticsearch':
     cwd     => '/tmp',
     command => "/usr/bin/wget -q ${elasticsearch::download} -O elasticsearch-${elasticsearch::version}.deb",
     unless  => "/usr/bin/test -f elasticsearch-${elasticsearch::version}.deb",
@@ -24,6 +24,6 @@ class elasticsearch::install {
     provider  => 'dpkg',
     ensure    => 'installed',
     source    => "/tmp/elasticsearch-${elasticsearch::version}.deb",
-    require   => [Exec['download'], Package[$java]],
+    require   => [Exec['download-elasticsearch'], Package[$java]],
   }
 }

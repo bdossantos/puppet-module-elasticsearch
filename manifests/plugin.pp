@@ -6,7 +6,7 @@ define elasticsearch::plugin(
 ){
 
   exec { $name:
-    command => "${plugin_bin} -install ${username}/${repo_name} ${version}",
+    command => "${plugin_bin} -install ${username}/${repo_name}/${version}",
     require => Package['elasticsearch'],
   }
 }

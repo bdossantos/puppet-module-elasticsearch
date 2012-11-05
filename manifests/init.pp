@@ -8,10 +8,10 @@ class elasticsearch(
   $index_number_of_replicas = 1,
   $bind_host = '127.0.0.1'
 ) {
-  
+
   $download = "https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${elasticsearch::version}.deb"
-  
-  include elasticsearch::install, 
-          elasticsearch::configure, 
+
+  include elasticsearch::install,
+          elasticsearch::configure,
           elasticsearch::service
 }

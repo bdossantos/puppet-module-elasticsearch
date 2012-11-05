@@ -2,10 +2,10 @@ class elasticsearch::install {
 
   case $operatingsystem {
     /(?i)(Debian|Ubuntu)/: {
-    	$java = 'openjdk-6-jre-headless'
+      $java = 'openjdk-6-jre-headless'
     }
     default: {
-    	fail 'Unsupported OS :('
+      fail 'Unsupported OS :('
     }
   }
 

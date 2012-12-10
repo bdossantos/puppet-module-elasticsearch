@@ -6,7 +6,8 @@ class elasticsearch(
   $node_data = true,
   $index_number_of_shards = 5,
   $index_number_of_replicas = 1,
-  $bind_host = '127.0.0.1'
+  $bind_host = '127.0.0.1',
+  $data_path = undef
 ) {
 
   $download = "https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${elasticsearch::version}.deb"

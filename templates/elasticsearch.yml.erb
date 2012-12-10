@@ -147,6 +147,9 @@ index.number_of_replicas: <%= @index_number_of_replicas %>
 # Path to directory where to store index data allocated for this node.
 #
 # path.data: /path/to/data
+<% if @data_path %>
+path.data: <%= @data_path %>
+<% end %>
 #
 # Can optionally include more than one location, causing data to be striped across
 # the locations (à la RAID 0) on a file level, favouring locations with most free

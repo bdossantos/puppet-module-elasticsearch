@@ -21,8 +21,8 @@ class elasticsearch::install {
   }
 
   package { 'elasticsearch':
-    provider  => 'dpkg',
     ensure    => 'installed',
+    provider  => 'dpkg',
     source    => "/tmp/elasticsearch-${elasticsearch::version}.deb",
     require   => [Exec['download-elasticsearch'], Package[$java]],
   }

@@ -26,4 +26,24 @@ class elasticsearch::install {
     source    => "/tmp/elasticsearch-${elasticsearch::version}.deb",
     require   => [Exec['download-elasticsearch'], Package[$java]],
   }
+
+  user { 'elasticsearch':
+    ensure      => present,
+    home        => '/usr/share/elasticsearch',
+    managehome  => false,
+    comment     => '',
+    shell       => '/bin/false',
+  }
+
+  if $elasticsearch::data_path != undef {
+    file { $elasticsearch::data_path:
+      owner   => 'elasticsearch',
+      group   => 'elasticsearch',
+      mode    => '0700',
+      require => [
+        Package['elasticsearch'],
+        User['elasticsearch']
+      ],
+    }
+  }
 }

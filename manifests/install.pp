@@ -15,8 +15,8 @@ class elasticsearch::install {
 
   exec { 'download-elasticsearch':
     cwd     => '/tmp',
+    creates => "/tmp/elasticsearch-${elasticsearch::version}.deb",
     command => "/usr/bin/wget -q ${elasticsearch::download} -O elasticsearch-${elasticsearch::version}.deb",
-    unless  => "/usr/bin/test -f elasticsearch-${elasticsearch::version}.deb",
     timeout => 120,
   }
 

@@ -10,7 +10,7 @@ class elasticsearch(
   $data_path = undef
 ) {
 
-  $download = "https://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${elasticsearch::version}.deb"
+  $download = "http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-${elasticsearch::version}.deb"
 
   include elasticsearch::install,
           elasticsearch::configure,

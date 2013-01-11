@@ -23,6 +23,12 @@ class { 'elasticsearch':
   bind_host                 => '0.0.0.0',
   data_path                 => '/var/elasticsearch',
 }
+
+elasticsearch::plugin { 'couchdb-river':
+  username  => 'elasticsearch',
+  repo_name => 'elasticsearch-river-couchdb',
+  version   => '1.1.0',
+}
 ```
 
 **Note**: To use the data path option, you have to ensure directory is present

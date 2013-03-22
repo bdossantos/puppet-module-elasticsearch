@@ -37,6 +37,7 @@ class elasticsearch::install {
 
   if $elasticsearch::data_path != undef {
     file { $elasticsearch::data_path:
+      ensure  => 'directory',
       owner   => 'elasticsearch',
       group   => 'elasticsearch',
       mode    => '0700',
